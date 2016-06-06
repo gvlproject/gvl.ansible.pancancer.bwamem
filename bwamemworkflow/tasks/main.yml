@@ -19,6 +19,14 @@
   with_items:
     - "{{ cwl_packages }}"
 
+- name: Copy Dockstore config
+  copy: src="config" dest="/home/galaxy/.dockstore/config" owner={{ BWAMEM_USER }} group={{ BWAMEM_GROUP }}
+
+- name: Run Dockstore for first time initialisation
+  shell: chdir="{{ BWAMEM_ROOT }}" dockstore
+  become: yes
+  become_user: "{{ BWAMEM_USER }}"
+
 - name: Copy sample files
   copy: src="samples" dest="{{ BWAMEM_ROOT }}/" owner={{ BWAMEM_USER }} group={{ BWAMEM_GROUP }}
   
