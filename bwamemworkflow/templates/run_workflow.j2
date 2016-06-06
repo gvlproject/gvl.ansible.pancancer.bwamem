@@ -1,0 +1,8 @@
+if [[ -z $1 ]];
+then
+    echo "Path to json input file required, check the samples folder for an example file."
+    echo "Usage: $0  [json_input_file]"
+    exit 1
+fi
+
+dockstore tool launch --entry quay.io/pancancer/pcawg-bwa-mem-workflow:{{ bwamem_version }} --json $1

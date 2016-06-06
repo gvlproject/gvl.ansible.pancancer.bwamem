@@ -1,0 +1,18 @@
+gvl_install_path: /opt/gvl
+
+BWAMEM_ROOT: /mnt/gvl/apps/pancancer/bwamem_workflow
+BWAMEM_USER: galaxy
+BWAMEM_GROUP: galaxy
+dockstore_version: 0.4-beta.1
+bwamem_version: 2.6.8
+
+dockstore_package: {
+    src: "https://github.com/ga4gh/dockstore/releases/download/{{ dockstore_version }}/dockstore",
+    dest: "/usr/bin/dockstore"
+}
+
+cwl_packages: [{ name: "cwl-runner", version: "1.0" },
+               { name: "cwltool", version: "1.0.20160316150250" },
+               { name: "schema-salad", version: "1.7" },
+               { name: "avro", version: "1.7.7" },
+               { name: "typing", version: "3.5.1.0" }]
