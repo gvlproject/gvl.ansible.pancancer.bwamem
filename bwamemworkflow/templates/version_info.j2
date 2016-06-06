@@ -2,3 +2,4 @@ name: "Pancancer BWA-Mem Workflow"
 version: "{{ bwamem_version }}"
 install_date:  "{{ ansible_date_time.iso8601 }}"
 dockstore_version: "{{ dockstore_version }}"
+dependencies: {{ cwl_packages }}
